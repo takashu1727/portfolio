@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>料理編集画面</h2>
+    {% if object.picture %}
+    <img src="{{ object.picture.url }}" alt="" style="max-width: 200px;">
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <ul>
+            {{ form.dish_name.label_tag }}<br>
+            {{ form.dish_name }}
+        </ul>
+        <ul>
+            {{ form.shop_name.label_tag }}<br>
+            {{ form.shop_name }}
+        </ul>
+        <ul>
+            {{ form.price.label_tag }}<br>
+            {{ form.price }}
+        </ul>
+        <ul>
+            {{ form.comment.label_tag }}<br>
+            {{ form.comment }}
+        </ul>
+        
+        <ul>
+            <label for="">画像を変更</label>
+            {{ form.picture }}
+        </ul>
+
+        <input type="submit" value="変更する">
+    </form>
+    <a href="{% url 'dishapp:dish_detail' pk=object.pk %}">詳細画面に戻る</a>
+</div>
+{% endblock content %}
+    

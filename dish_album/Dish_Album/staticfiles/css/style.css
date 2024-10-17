@@ -1,0 +1,42 @@
+.navcolor{
+    color: red;
+    display: block;
+    float: left;
+}
+
+label{
+    color: blue;
+    margin: 10px 0 10px 0;
+}
+
+li{
+    list-style: none;
+}
+.errorlist{
+    color: red;
+    margin: 10px 0 10px 0;    
+}
+
+main{
+    min-height: 300px;
+}
+nav{
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+.rogo{
+    width: 100px;
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+}
+/* フッターを下部に固定するCSS。main要素のheightに合わせて動く */
+.Footer{
+    position: sticky;
+    bottom: 0;
+
+}

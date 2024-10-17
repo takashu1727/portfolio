@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ object.dish_name }}を削除しますか？</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="削除する">
+    </form>
+    <a href="{% url 'dishapp:dish_detail' pk=object.pk%}">詳細画面へ戻る</a>
+</div>
+{% endblock content %}
+    

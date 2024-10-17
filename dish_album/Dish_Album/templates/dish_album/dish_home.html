@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+    <h2>{{ view.request.user.username }}のdishHOME</h2>
+</div>
+{% endif %}
+{% endblock content %}
+    

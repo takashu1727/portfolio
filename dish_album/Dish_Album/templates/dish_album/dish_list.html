@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <div class="container">
+    <h2>料理一覧＆検索画面</h2>
+    <form action="" method="get">
+        <p>料理名: <input type="text" name="dish_name" value="{{ dish_name }}"></p>
+        <p>店名: <input type="text" name="shop_name" value="{{ shop_name }}"></p>
+        <!-- <p>値段で並び替える:
+            昇順<input type="radio" name = "order_by_price" value="1" {% if syojun %}checked{% endif %}>
+            降順<input type="radio" name = "order_by_price" value="2" {% if kojun %}checked{% endif %}>
+        </p> -->
+        <p><input type="submit" value="検索する"></p>
+    </form>
+    <a href="{% url 'dishapp:dish_home'%}">ホームへ戻る</a>
+    <table>
+        {% if mydish %}
+        <thead>
+            <tr>
+                <td>料理名</td>
+                <td>店名</td>
+                <td>価格</td>
+                <td>一言コメント</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dish in object_list %}
+            <tr>
+                <td><a href="{% url 'dishapp:dish_detail' pk=dish.pk %}">{{ dish.dish_name }}</a></td>
+                <td>{{ dish.shop_name }}</td>
+                <td>{{ dish.price }}</td>
+                <td>{{ dish.comment }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td>何も料理を登録していません。</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+ </div>
+{% endblock content %}
+    

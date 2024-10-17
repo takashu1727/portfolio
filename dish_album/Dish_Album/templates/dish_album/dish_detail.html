@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>料理詳細画面</h2>
+    {% if object.picture %}
+    <img src="{{ object.picture.url }}" alt="" style="max-width: 200px;">
+    {% endif %}
+    <div>
+        <ul>
+            料理名<br>
+            {{ object.dish_name }}
+        </ul>
+        <ul>
+            店名<br>
+            {{ object.shop_name }}
+        </ul>
+        <ul>
+            価格<br>
+            {{ object.price }}
+        </ul>
+        <ul>
+            一言コメント<br>
+            {{ object.comment }}
+        </ul>
+        <a href="{% url 'dishapp:dish_edit' pk=object.pk%}">編集する</a>
+        <a href="{% url 'dishapp:dish_delete' pk=object.pk%}">削除する</a>
+        <a href="{% url 'dishapp:dish_list' %}">一覧画面に戻る</a>
+    </div>
+</div>
+{% endblock content %}
+    

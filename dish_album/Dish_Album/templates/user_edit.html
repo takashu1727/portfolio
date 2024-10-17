@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>ユーザ編集画面</h2>
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="変更する">
+    </form>
+    <a href="{% url 'dishapp:dish_home'%}">ホームへ戻る</a>
+</div> 
+{% endblock content %}
+    
