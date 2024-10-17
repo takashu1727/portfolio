@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.core.management.utils import get_random_secret_key
+SECRET_KEY = get_random_secret_key()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -25,7 +27,9 @@ SECRET_KEY = 'django-insecure-4$1&1n^a=(6etz^_!@oeqllr))jj5)2f@3vqld4ipq2*glq045
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '.pythonanywhere.com', 'takashu1727.pythonanywhere.com']
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 
 # Application definition
@@ -132,3 +136,9 @@ LOGOUT_REDIRECT_URL = '/accounts/home'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+try:
+    from .local_settings import *
+except:
+    pass
+
