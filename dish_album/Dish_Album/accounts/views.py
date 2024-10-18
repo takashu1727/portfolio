@@ -5,6 +5,7 @@ from .forms import RegistForm, UserLoginForm, UserEditForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.contrib import messages
 from .models import Users
 
 # Create your views here.
@@ -15,6 +16,12 @@ class HomeView(TemplateView):
 class RegistUserView(CreateView):
     template_name = 'regist.html'
     form_class = RegistForm
+    success_url = reverse_lazy('accounts:user_login')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, '会員登録が完了しました。ログインしてください。')
+        return response
 
 class UserLoginView(LoginView):
     template_name = 'user_login.html'
