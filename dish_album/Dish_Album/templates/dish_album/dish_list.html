@@ -3,6 +3,13 @@
 {% block content %}
  <div class="container">
     <h2>料理一覧＆検索画面</h2>
+    {% if messages %}
+    {% for message in messages %}
+    <ul class="messages">
+        <li class="{{ message.tags }}">{{ message }}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}    
     <form action="" method="get">
         <p>料理名: <input type="text" name="dish_name" value="{{ dish_name }}"></p>
         <p>店名: <input type="text" name="shop_name" value="{{ shop_name }}"></p>

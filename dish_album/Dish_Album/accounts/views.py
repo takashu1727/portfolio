@@ -28,7 +28,10 @@ class UserLoginView(LoginView):
     authentication_form = UserLoginForm
 
 class UserLogoutView(LoginRequiredMixin, LogoutView):
-    pass
+    
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(self.request, 'ログアウトしました。')
+        return super().dispatch(request, *args, **kwargs)
 
 class UserEditView(LoginRequiredMixin, UpdateView):
     model = Users
@@ -39,3 +42,8 @@ class UserEditView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         query = Users.objects.filter(pk = self.request.user.id)
         return query
+
+    def form_valid(self, form):
+        if form.has_changed():#has_changedは、POSTされたデータと既存データに差分があればTrue、なければFalseを返す。
+            messages.success(self.request, 'ユーザ情報を更新しました。')
+        return super().form_valid(form)

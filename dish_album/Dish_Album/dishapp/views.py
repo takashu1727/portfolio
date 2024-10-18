@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 from .models import Dishes
 from datetime import datetime
 from .forms import DishCreateForm, DishUpdateForm
@@ -21,6 +22,7 @@ class DishCreateView(LoginRequiredMixin,CreateView):
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user
+        messages.success(self.request, '料理が登録されました。')
         return super().form_valid(form)
     
 class DishListView(LoginRequiredMixin, ListView):
@@ -57,6 +59,10 @@ class DishUpdateView(LoginRequiredMixin, UpdateView):
     def get_queryset(self):
         queryset = Dishes.objects.filter(user_id = self.request.user)
         return queryset
+    
+    def form_valid(self, form):
+        messages.success(self.request, '料理を更新しました。')
+        return super().form_valid(form)
     
 class DishDetailView(LoginRequiredMixin, DetailView):
     model = Dishes

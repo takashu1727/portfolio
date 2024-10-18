@@ -2,9 +2,16 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="container">
-    <h2>{{ view.request.user.username }}のdishHOME</h2>
-</div>
+    <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+        <ul class="messages">
+            <li class="{{ message.tags }}">{{ message }}</li>
+        </ul>
+        {% endfor %}
+        {% endif %}
+        <h2>{{ view.request.user.username }}のdishHOME</h2>
+    </div>
 {% endif %}
 {% endblock content %}
     

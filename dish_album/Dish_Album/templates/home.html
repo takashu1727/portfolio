@@ -2,6 +2,17 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <h1>ホーム画面です</h1>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>オリジナルの外食ログアプリです。</h1>
+    <p>外食するとき、必ずと言っていいほど行う事。<br>
+        そう。カメラアプリの起動。<br>
+        溜まりに溜まった料理たちの写真をこのアプリで管理しよう。
+    </p>
 </div>
 {% endblock %}

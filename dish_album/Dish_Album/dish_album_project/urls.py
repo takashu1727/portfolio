@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from dishapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
     path('dish_album/', include('dishapp.urls')),
 ]
 
