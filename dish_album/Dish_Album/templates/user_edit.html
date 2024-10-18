@@ -2,13 +2,6 @@
 
 {% block content %}
 <div class="container">
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
     <h2>ユーザ編集画面</h2>
     <form action="" method="post">
     {% csrf_token %}

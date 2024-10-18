@@ -4,6 +4,14 @@
     float: left;
 }
 
+.messages .success{
+    color: green;
+}
+
+.messages .error{
+    color: red;
+}
+
 label{
     color: blue;
     margin: 10px 0 10px 0;
