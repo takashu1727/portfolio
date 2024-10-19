@@ -61,7 +61,8 @@ class DishUpdateView(LoginRequiredMixin, UpdateView):
         return queryset
     
     def form_valid(self, form):
-        messages.success(self.request, '料理を更新しました。')
+        if form.has_changed():
+            messages.success(self.request, '料理を更新しました。')
         return super().form_valid(form)
     
 class DishDetailView(LoginRequiredMixin, DetailView):
