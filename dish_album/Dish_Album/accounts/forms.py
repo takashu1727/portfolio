@@ -43,4 +43,9 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model = Users
         fields = ['username', 'email']
+        labels = {
+            'username': '名前',
+            'email': 'メールアドレス'
+        }
+
 
