@@ -11,10 +11,12 @@
         <ul>
             {{ form.dish_name.label_tag }}<br>
             {{ form.dish_name }}
+            {{ form.dish_name.errors }}
         </ul>
         <ul>
             {{ form.shop_name.label_tag }}<br>
             {{ form.shop_name }}
+            {{ form.shop_name.errors }}
         </ul>
         <ul>
             {{ form.price.label_tag }}<br>
@@ -24,6 +26,7 @@
         <ul>
             {{ form.comment.label_tag }}<br>
             {{ form.comment }}
+            {{ form.comment.errors }}
         </ul>
         
         <ul>
