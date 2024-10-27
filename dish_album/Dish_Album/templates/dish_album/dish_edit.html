@@ -31,12 +31,10 @@
             {{ form.comment }}
             {{ form.comment.errors }}
         </ul>
-        
         <ul>
-            <label for="id_picture">画像を変更:</label><br>
-            {{ form.picture }}  <!-- pictureフィールドを表示 -->
+            <label for="">画像を変更:</label><br>
+            <input type="file" name="{{ form.picture.name }}" id="{{ form.picture.id_for_label }}" {% include "attrs.html" %}>
         </ul>
-
         <input type="submit" value="変更する">
     </form>
     <a href="{% url 'dishapp:dish_detail' pk=object.pk %}">詳細画面に戻る</a>

@@ -52,7 +52,7 @@ class DishListView(LoginRequiredMixin, ListView):
 
 class DishUpdateView(LoginRequiredMixin, UpdateView):
     model = Dishes
-    form_class = DishCreateForm
+    form_class = DishUpdateForm
     template_name = os.path.join('dish_album', 'dish_edit.html')
     success_url = reverse_lazy('dishapp:dish_list')
 
