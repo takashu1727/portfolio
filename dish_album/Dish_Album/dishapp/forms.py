@@ -11,6 +11,10 @@ class DishCreateForm(forms.ModelForm):
     class Meta:
         model = Dishes
         fields = ['dish_name', 'shop_name', 'price', 'comment', 'picture']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields.pop('clear', None)
 
 class DishUpdateForm(forms.ModelForm):
 

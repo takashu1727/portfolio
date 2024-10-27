@@ -5,6 +5,9 @@
     <h2>料理編集画面</h2>
     {% if object.picture %}
     <img src="{{ object.picture.url }}" alt="" style="max-width: 200px;">
+    {% if form.picture.errors %}
+    {{ form.picture.errors }}
+    {% endif %}
     {% endif %}
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -30,7 +33,7 @@
         </ul>
         
         <ul>
-            <label for="">画像を変更</label>
+            <label for="">画像を変更:</label><br>
             {{ form.picture }}
         </ul>
 
