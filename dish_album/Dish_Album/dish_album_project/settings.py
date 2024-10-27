@@ -141,5 +141,3 @@ try:
     from .local_settings import *
 except ImportError as e:
     print(f"local_settings.pyが読み込まれませんでした: {e}")
-
-print(f"DEBUG: {DEBUG}")

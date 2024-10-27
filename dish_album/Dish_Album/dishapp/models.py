@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 
 class Dishes(models.Model):
     dish_name = models.CharField(max_length=255)
-    picture = models.FileField(null=True, upload_to='picture/')
+    picture = models.ImageField(null=True, upload_to='picture/')
     comment = models.CharField(max_length=1000)
     shop_name = models.CharField(max_length=255)
     price = models.PositiveIntegerField()
