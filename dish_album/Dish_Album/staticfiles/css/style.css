@@ -1,5 +1,5 @@
 .navcolor{
-    color: green;
+    color: blue;
     display: block;
     float: left;
 }
@@ -47,4 +47,10 @@ nav{
     position: sticky;
     bottom: 0;
 
+}
+input[type="checkbox"][id$="-clear_id"] {
+    display: none;
+}
+label[for="picture-clear_id"] {
+    display: none;
 }

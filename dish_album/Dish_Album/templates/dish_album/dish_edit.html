@@ -33,6 +33,7 @@
         </ul>
         <ul>
             <label for="">画像を変更:</label><br>
+            現在の画像:　{{ object.picture.name|slice:"8:" }}<br>
             <input type="file" name="{{ form.picture.name }}" id="{{ form.picture.id_for_label }}" {% include "attrs.html" %}>
         </ul>
         <input type="submit" value="変更する">
