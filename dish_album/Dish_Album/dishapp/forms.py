@@ -6,7 +6,7 @@ class DishCreateForm(forms.ModelForm):
     shop_name = forms.CharField(label='店名')
     price = forms.IntegerField(label='価格')
     comment = forms.CharField(label='一言コメント')
-    picture = forms.FileField(label='料理画像', required=False)
+    picture = forms.ImageField(label='料理画像', required=False)
     
     class Meta:
         model = Dishes
@@ -14,7 +14,8 @@ class DishCreateForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields.pop('clear', None)
+        self.fields['picture'].label = ''  # ラベルを空に設定
+        self.fields.pop('clear', None)  # clearフィールドを削除
 
 class DishUpdateForm(forms.ModelForm):
 

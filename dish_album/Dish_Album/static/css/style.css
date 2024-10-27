@@ -48,3 +48,9 @@ nav{
     bottom: 0;
 
 }
+input[type="checkbox"][id$="-clear_id"] {
+    display: none;
+}
+label[for="picture-clear_id"] {
+    display: none;
+}
