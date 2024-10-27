@@ -10,7 +10,7 @@ class DishCreateForm(forms.ModelForm):
     shop_name = forms.CharField(label='店名')
     price = forms.IntegerField(label='価格')
     comment = forms.CharField(label='一言コメント')
-    picture = forms.ImageField(label='料理画像', required=False)
+    picture = forms.FileField(label='料理画像', required=False)
     
     class Meta:
         model = Dishes
@@ -21,7 +21,7 @@ class DishUpdateForm(forms.ModelForm):
     shop_name = forms.CharField(label='店名')
     price = forms.IntegerField(label='価格')
     comment = forms.CharField(label='一言コメント')
-    picture = forms.ImageField(label='料理画像', required=False, widget=CustomClearableFileInput)
+    picture = forms.FileField(label='料理画像', required=False, widget=CustomClearableFileInput)
     
     class Meta:
         model = Dishes

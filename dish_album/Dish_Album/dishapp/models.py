@@ -13,7 +13,7 @@ def validate_image_file(value):
 
 class Dishes(models.Model):
     dish_name = models.CharField(max_length=255)
-    picture = models.ImageField(null=True, upload_to='picture/', validators=[validate_image_file])
+    picture = models.FileField(null=True, upload_to='picture/', validators=[validate_image_file])
     comment = models.CharField(max_length=1000)
     shop_name = models.CharField(max_length=255)
     price = models.PositiveIntegerField()
