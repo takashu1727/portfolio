@@ -139,6 +139,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 try:
     from .local_settings import *
-except:
-    pass
+except ImportError as e:
+    print(f"local_settings.pyが読み込まれませんでした: {e}")
 
