@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container">
+<div class="base">
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -10,9 +10,11 @@
     </ul>
     {% endif %}
     <h1>オリジナルの外食ログアプリです。</h1>
-    <p>外食するとき、必ずと言っていいほど行う事。<br>
+    <p class="home-comment">外食するとき、必ずと言っていいほど行う事。<br>
         そう。カメラアプリの起動。<br>
-        溜まりに溜まった料理たちの写真をこのアプリで管理しよう。
+        熱々の料理を前にしてもなお、映える写真を残したい一心で撮影する・・・<br>
+        そうまでして撮影した写真達、ちゃんと管理してますか？見返してますか？<br>
+        溜まりに溜まった料理たちの写真をこのアプリで管理しましょう！
     </p>
 </div>
 {% endblock %}

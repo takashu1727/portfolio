@@ -9,40 +9,44 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <title>dish_album</title>
 </head>
-<body class="container">
-    <header class="container">
-        <nav class="navbar bg-body-tertiary">
-            <div class="rogo">
-                dish-album
-            </div>
-            <div class="">
-                <ul class="navbar-nav menu">
-                    <!-- ここでのformタグは、ログアウトのaタグをpost送信する為のもの。 -->
-                    <form action="{% url 'accounts:user_logout' %}" method="post" name="form1">
-                    {% if user.is_authenticated %}
-                       {% csrf_token %}
-                       <input type="hidden">
-                       <a class="navbar-brand navcolor" href="{% url 'dishapp:dish_home' %}">ホーム</a>
-                       <a class="navbar-brand navcolor" href="{% url 'dishapp:dish_create' %}">料理登録</a>
-                       <a class="navbar-brand navcolor" href="{% url 'dishapp:dish_list' %}">料理一覧＆検索画面</a>
-                       <a class="navbar-brand navcolor" href="{% url 'accounts:user_edit' pk=request.user.id %}">ユーザ編集</a>
-                       <a class="navbar-brand navcolor" href="javascript:form1.submit()">ログアウト</a>
-                       {% else %}
-                       <a class="navbar-brand navcolor" href="{% url 'accounts:home' %}">ホーム</a>
-                       <a class="navbar-brand navcolor" href="{% url 'accounts:user_login' %}">ログイン</a>
-                       <a class="navbar-brand navcolor" href="{% url 'accounts:regist' %}">ユーザ登録</a>
-                       {% endif %}                      
-                    </form>
-                </ul>
-            </div>
+<body class="wrapper">
+    <header>
+        <nav>
+            <ul>
+                {% url 'dishapp:dish_home' as home_url %}
+                {% url 'dishapp:dish_create' as dish_create %}
+                {% url 'dishapp:dish_list' as dish_list %}
+                {% url 'accounts:user_edit' pk=request.user.id as user_edit %}
+                {% url 'accounts:user_logout' as user_logout %}
+                {% url 'accounts:home' as home %}
+                {% url 'accounts:user_login' as user_login %}
+                {% url 'accounts:regist' as regist %}
+                <!-- ここでのformタグは、ログアウトのaタグをpost送信する為のもの。 -->
+                <form action="{% url 'accounts:user_logout' %}" method="post" name="form1">
+                    <li class="nav-bar">dish-album</li>
+                {% if user.is_authenticated %}
+                    {% csrf_token %}
+                    <input type="hidden">
+                    <li class="nav-bar"><a class="{% if request.path == home_url %}active{% endif %}" href="{{ home_url }}">ホーム</a></li>
+                    <li class="nav-bar"><a class="{% if request.path == dish_create %}active{% endif %}" href="{{ dish_create }}">料理登録</a></li>
+                    <li class="nav-bar"><a class="{% if request.path == dish_list %}active{% endif %}" href="{{ dish_list }}">一覧＆検索</a></li>
+                    <li class="nav-bar"><a class="{% if request.path == user_edit %}active{% endif %}" href="{{ user_edit }}">ユーザ編集</a></li>
+                    <li class="nav-bar"><a class="{% if request.path == user_logout %}active{% endif %}" href="javascript:form1.submit()">ログアウト</a></li>
+                    {% else %}
+                    <li class="nav-bar"><a class="{% if request.path == home %}active{% endif %}" href="{{ home }}">ホーム</a></li>
+                    <li class="nav-bar"><a class="{% if request.path == user_login %}active{% endif %}" href="{{ user_login }}">ログイン</a></li>
+                    <li class="nav-bar"><a class="{% if request.path == regist %}active{% endif %}" href="{{ regist }}">ユーザ登録</a></li>
+                    {% endif %}                      
+                </form>
+            </ul>
         </nav>
     </header>
     <main>
         {% block content %}
         {% endblock %}
     </main>
-    <footer class="text-center bg-tertiary Footer">
-        <p>2024 T.O Inc. All Rights Reserved.</p>
+    <footer class="Footer">
+        2024 T.O Inc. All Rights Reserved.
     </footer>
 </body>
 </html>

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="base">
     <h2>{{ object.dish_name }}を削除しますか？</h2>
-    <form action="" method="post">
+    <form action="" method="post" class="base_form">
         {% csrf_token %}
         <input type="submit" value="削除する">
     </form>
