@@ -8,7 +8,7 @@ class CustomClearableFileInput(ClearableFileInput):
 class DishCreateForm(forms.ModelForm):
     dish_name = forms.CharField(label='料理名')
     shop_name = forms.CharField(label='店名')
-    price = forms.IntegerField(label='価格')
+    price = forms.IntegerField(label='価格', min_value=0)
     comment = forms.CharField(label='一言コメント')
     picture = forms.FileField(label='料理画像', required=False)
     
@@ -19,7 +19,7 @@ class DishCreateForm(forms.ModelForm):
 class DishUpdateForm(forms.ModelForm):
     dish_name = forms.CharField(label='料理名')
     shop_name = forms.CharField(label='店名')
-    price = forms.IntegerField(label='価格')
+    price = forms.IntegerField(label='価格', min_value=0)
     comment = forms.CharField(label='一言コメント')
     picture = forms.FileField(label='料理画像', required=False, widget=CustomClearableFileInput)
     
