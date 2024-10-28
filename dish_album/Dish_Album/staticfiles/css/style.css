@@ -1,56 +1,106 @@
-.navcolor{
-    color: blue;
-    display: block;
-    float: left;
+main{
+    min-height: 400px;
 }
-
-.messages .success{
-    color: green;
-}
-
-.messages .error{
-    color: red;
-}
-
-label{
-    color: blue;
-    margin: 10px 0 10px 0;
-}
-
 li{
     list-style: none;
 }
+.wrapper{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
+
+/* コメントcss */
 .errorlist{
     color: red;
     margin: 10px 0 10px 0;    
 }
-
-main{
-    min-height: 300px;
+.messages .success{
+    color: green;
 }
+.messages .error{
+    color: red;
+}
+
+
+/* ナビゲーションcss */
 nav{
-    overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-end;
+    text-align: center;
+    margin: 10px;
+    background-color: #eaeaea;
 }
-.rogo{
-    width: 100px;
-    float: left;
-    margin-left: 10px;
-    font-size: 20px;
+nav ul{
+    margin: 0 ;
+    padding: 0 ;
+    font-size: large;
 }
-/* フッターを下部に固定するCSS。main要素のheightに合わせて動く */
-.Footer{
-    position: sticky;
-    bottom: 0;
+nav li.nav-bar{
+    list-style: none;
+    display: inline-block;
+    width: 10%;
+    min-width: 90px;
+}
+nav li:not(:last-child){
+    border-right:2px solid #ddd;
+}
+nav a{
+    text-decoration: none;
+    color: #333;
+}
+.current{
+    color: #f09c00;
+    border-bottom:2px solid #f09c00;
+}
+nav a:hover{
+    color:#f7754d;
+    border-bottom:2px solid #f7754d;;
+}
+.active{
+    color: #f09c00;
+    border-bottom:2px solid #f09c00;
+}
 
+
+/* フッターを下部に固定するCSS */
+.Footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 30px;
 }
+
+
+/* 編集画面の画像編集項目のクリアを消すcss */
 input[type="checkbox"][id$="-clear_id"] {
     display: none;
 }
 label[for="picture-clear_id"] {
     display: none;
+}
+
+
+/* メインコンテンツcss */
+.base{
+    width: 700px;
+    position: relative;
+    top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 3px #ababab;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 4px rgb(218, 217, 217);
+}
+.home-comment{
+    padding: 10px;
+    text-align: left;
+}
+.base_form li{
+    text-align: left;
+    margin: 30px auto;
+    width: 183px;
 }
