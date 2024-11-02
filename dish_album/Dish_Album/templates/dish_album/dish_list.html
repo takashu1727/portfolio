@@ -4,11 +4,11 @@
  <div class="base">
     <h2>料理一覧＆検索画面</h2>
     {% if messages %}
-    {% for message in messages %}
-    <ul class="messages">
-        <li class="{{ message.tags }}">{{ message }}</li>
-    </ul>
-    {% endfor %}
+        {% for message in messages %}
+        <ul class="messages">
+            <li class="{{ message.tags }}">{{ message }}</li>
+        </ul>
+        {% endfor %}
     {% endif %}    
     <form action="" method="get">
         <p>料理名: <input type="text" name="dish_name" value="{{ dish_name }}"></p>
@@ -19,33 +19,33 @@
         </p> -->
         <p><input type="submit" value="検索する"></p>
     </form>
-    <a href="{% url 'dishapp:dish_home'%}">ホームへ戻る</a>
     <table>
         {% if mydish %}
         <thead>
             <tr>
-                <td>料理名</td>
-                <td>店名</td>
-                <td>価格</td>
-                <td>一言コメント</td>
+                <th class="table_width">料理名</th>
+                <th class="table_width">店名</th>
+                <th class="table_width">価格</th>
+                <th class="comment_width">一言コメント</th>
             </tr>
         </thead>
         <tbody>
             {% for dish in object_list %}
             <tr>
-                <td><a href="{% url 'dishapp:dish_detail' pk=dish.pk %}">{{ dish.dish_name }}</a></td>
-                <td>{{ dish.shop_name }}</td>
-                <td>{{ dish.price }}</td>
-                <td>{{ dish.comment }}</td>
+                <td class="table_width"><a href="{% url 'dishapp:dish_detail' pk=dish.pk %}">{{ dish.dish_name }}</a></td>
+                <td class="table_width">{{ dish.shop_name }}</td>
+                <td class="table_width">{{ dish.price }}</td>
+                <td class="comment_width">{{ dish.comment }}</td>
             </tr>
             {% endfor %}
-        {% else %}
+            {% else %}
             <tr>
                 <td>何も料理を登録していません。</td>
             </tr>
-        {% endif %}
+            {% endif %}
         </tbody>
     </table>
- </div>
+    <a class="back_home" href="{% url 'dishapp:dish_home'%}">ホームへ戻る</a>
+</div>
 {% endblock content %}
     

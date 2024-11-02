@@ -11,6 +11,7 @@
         {% endfor %}
         {% endif %}
         <h2>{{ view.request.user.username }}のdishHOME</h2>
+        <p>現在の料理登録数：{{ dish_count }}件</p>
     </div>
 {% endif %}
 {% endblock content %}

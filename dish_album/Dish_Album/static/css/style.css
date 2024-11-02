@@ -1,3 +1,7 @@
+body{
+    font-family: "Hiragino Maru Gothic ProN", sans-serif;
+}
+
 main{
     min-height: 400px;
 }
@@ -9,6 +13,9 @@ li{
     position: relative;
     padding-bottom: 120px;
     box-sizing: border-box;
+}
+a{
+    text-decoration: none;
 }
 
 
@@ -103,4 +110,22 @@ label[for="picture-clear_id"] {
     text-align: left;
     margin: 30px auto;
     width: 183px;
+}
+table{
+    width: 100%;
+}
+.tabel_width{
+    width: 15%;
+}
+.comment_width{
+    width: 55%;
+}
+.back_home{
+    display: block;
+    margin: 10px;
+}
+.detail_link{
+    display: inline-block;
+    margin: 10px;
+    width: 20%;
 }

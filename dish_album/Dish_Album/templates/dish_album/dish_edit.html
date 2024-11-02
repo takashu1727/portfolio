@@ -38,7 +38,7 @@
         </li>
         <input type="submit" value="変更する">
     </form>
-    <a href="{% url 'dishapp:dish_detail' pk=object.pk %}">詳細画面に戻る</a>
+    <a class="back_home" href="{% url 'dishapp:dish_detail' pk=object.pk %}">詳細画面に戻る</a>
 </div>
 {% endblock content %}
     

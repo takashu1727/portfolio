@@ -14,11 +14,22 @@ import os
 # Create your views here.
 
 class HomeLoginView(LoginRequiredMixin,TemplateView):
+    model = Dishes
     template_name = os.path.join('dish_album', 'dish_home.html')
+
+    def get_queryset(self):
+        queryset = Dishes.objects.filter(user_id = self.request.user)
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['dish_count'] = Dishes.objects.filter(user_id = self.request.user).count()
+        return context
 
 class DishCreateView(LoginRequiredMixin,CreateView):
     template_name = os.path.join('dish_album', 'dish_create.html')
     form_class = DishCreateForm
+    success_url = reverse_lazy('dishapp:dish_list')
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user
@@ -77,6 +88,10 @@ class DishDeleteView(LoginRequiredMixin, DeleteView):
     template_name = os.path.join('dish_album', 'dish_delete.html')
     model = Dishes
     success_url = reverse_lazy('dishapp:dish_list')
+
+    def get_success_url(self):
+        messages.success(self.request, "商品の削除が完了しました。")
+        return self.success_url
 
 def page_not_found_view(request, exception):
     return render(request, 'dish_album/404.html', status=404)

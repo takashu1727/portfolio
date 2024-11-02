@@ -23,9 +23,9 @@
             一言コメント<br>
             {{ object.comment }}
         </ul>
-        <a href="{% url 'dishapp:dish_edit' pk=object.pk%}">編集する</a>
-        <a href="{% url 'dishapp:dish_delete' pk=object.pk%}">削除する</a>
-        <a href="{% url 'dishapp:dish_list' %}">一覧画面に戻る</a>
+        <a class="detail_link" href="{% url 'dishapp:dish_edit' pk=object.pk%}">編集する</a>
+        <a class="detail_link" href="{% url 'dishapp:dish_delete' pk=object.pk%}">削除する</a>
+        <a class="detail_link" href="{% url 'dishapp:dish_list' %}">一覧画面に戻る</a>
     </div>
 </div>
 {% endblock content %}
