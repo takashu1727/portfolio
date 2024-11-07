@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<h1 class="title">dish-album</h1>
+<div class="dish_home">
+    <img src="{% static 'pictures/dish_album_home.jpg' %}" alt="ホーム画像">
+</div>
 <div class="base">
     {% if messages %}
     <ul class="messages">

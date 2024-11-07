@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.base import TemplateView
 from .forms import RegistForm, UserLoginForm, UserEditForm
@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Users
+from dishapp.models import Dishes
 
 # Create your views here.
 
