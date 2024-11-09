@@ -34,7 +34,7 @@
             <tr>
                 <td class="table_width"><a href="{% url 'dishapp:dish_detail' pk=dish.pk %}">{{ dish.dish_name }}</a></td>
                 <td class="table_width">{{ dish.shop_name }}</td>
-                <td class="table_width">{{ dish.price }}</td>
+                <td class="table_width">{{ dish.price }} 円</td>
                 <td class="comment_width">{{ dish.comment }}</td>
             </tr>
             {% endfor %}
